@@ -8,18 +8,18 @@ Multi-scale features are crucial for a wide range of vision tasks, *e.g.*, class
 ## Main Results
 | Model                              | Params (M) | GFLOPs | Resolution | Top-1 (%) | Reference |
 |------------------------------------|------------|--------|------------|-----------|-----------|
-| Swin-2G         | 12.8       | 2.0    | 224        | 79.2      | ICCV21    |
-| DeiT-S   | 22.1       | 4.6    | 224        | 79.8      | ICML21    |
-| PVT-Small   | 24.5       | 3.8    | 224        | 79.8      | ICCV21    |
-| P2T-T             | 11.6       | 1.8    | 224        | 79.8      | TPAMI22   |
-| Shunted-T    | 11.5       | 2.1    | 224        | 79.8      | CVPR22    |
-| EViT-S(Keep rate=0.6) | 22.1 | 3.5 | 256      | 80.0      | ICLR22    |
-| ConvNeXt V2-P | 9.1      | 1.4    | 224        | 80.3      | arXiv23   |
-| MobileViTv2-1.5 | 10.6 | 4.0 | 256      | 80.4      | arXiv22   |
-| CoaT Mini          | 10.0       | 6.8    | 224        | 80.8      | ICCV21    |
-| MPViT-XS       | 10.5       | 2.9    | 224        | 80.9      | CVPR22    |
-| *CrossViT-S* | 26.7     | 5.6    | 224        | 81.0      | ICCV21    |
-| **ScopeViT-T**                     | 7.4        | 2.0    | 256        | **81.1**  |           |
+| Swin-2G         | 12.8       | 2.0    | 224        | 79.2      | ICCV'2021    |
+| DeiT-S   | 22.1       | 4.6    | 224        | 79.8      | ICML'2021    |
+| PVT-Small   | 24.5       | 3.8    | 224        | 79.8      | ICCV'2021    |
+| P2T-T             | 11.6       | 1.8    | 224        | 79.8      | TPAMI'2022   |
+| Shunted-T    | 11.5       | 2.1    | 224        | 79.8      | CVPR'2022    |
+| EViT-S(Keep rate=0.6) | 22.1 | 3.5 | 256      | 80.0      | ICLR'2022    |
+| ConvNeXt V2-P | 9.1      | 1.4    | 224        | 80.3      | arXiv'2023   |
+| MobileViTv2-1.5 | 10.6 | 4.0 | 256      | 80.4      | arXiv'2022   |
+| CoaT Mini          | 10.0       | 6.8    | 224        | 80.8      | ICCV'2021    |
+| MPViT-XS       | 10.5       | 2.9    | 224        | 80.9      | CVPR'2022    |
+| *CrossViT-S* | 26.7     | 5.6    | 224        | 81.0      | ICCV'2021    |
+| **ScopeViT-T** / [(ckpt)](https://github.com/xuesongnie/ScopeViT/releases/download/v1.0.0/scopevit_tiny.pth)                     | 7.4        | 2.0    | 256        | **81.1**  |     -      |
 
 ## License
 
