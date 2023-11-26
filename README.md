@@ -19,7 +19,7 @@ Multi-scale features are crucial for a wide range of vision tasks, *e.g.*, class
 | CoaT Mini          | 10.0       | 6.8    | 224        | 80.8      | ICCV'2021    |
 | MPViT-XS       | 10.5       | 2.9    | 224        | 80.9      | CVPR'2022    |
 | *CrossViT-S* | 26.7     | 5.6    | 224        | 81.0      | ICCV'2021    |
-| **ScopeViT-T** / [(ckpt)](https://github.com/xuesongnie/ScopeViT/releases/download/v1.0.0/scopevit_tiny.pth)                     | 7.4        | 2.0    | 256        | **81.1**  |     -      |
+| **ScopeViT-T** | 7.4        | 2.0    | 256        | **81.1**  |    [ckpt](https://github.com/xuesongnie/ScopeViT/releases/download/v1.0.0/scopevit_tiny.pth)    |
 
 ## License
 
