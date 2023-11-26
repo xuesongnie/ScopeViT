@@ -247,14 +247,14 @@ class MultiScalePatchEmbed(nn.Module):
 
         if self.medium_embed != None and self.small_embed != None:
             large_group, medium_group, small_group = torch.split(x, split_size_or_sections=self.split_list, dim=1)
-            muti_scale_embed = torch.cat([self.large_embed(large_group), self.medium_embed(medium_group), self.small_embed(small_group)], dim=1)
+            multi_scale_embed = torch.cat([self.large_embed(large_group), self.medium_embed(medium_group), self.small_embed(small_group)], dim=1)
         elif self.medium_embed != None and self.small_embed == None:
             large_group, medium_group = torch.split(x, split_size_or_sections=self.split_list[:-1], dim=1)
-            muti_scale_embed = torch.cat([self.large_embed(large_group), self.medium_embed(medium_group)], dim=1)
+            multi_scale_embed = torch.cat([self.large_embed(large_group), self.medium_embed(medium_group)], dim=1)
         elif self.medium_embed == None and self.small_embed == None:
-            muti_scale_embed = self.large_embed(x)
+            multi_scale_embed = self.large_embed(x)
 
-        global_query, key_value = self.tensor_reshape(x, state='bchw2bnc'), self.tensor_reshape(muti_scale_embed, state='bchw2bnc')
+        global_query, key_value = self.tensor_reshape(x, state='bchw2bnc'), self.tensor_reshape(multi_scale_embed, state='bchw2bnc')
         return global_query, key_value
 
 
@@ -279,7 +279,7 @@ class MultiScaleAttention(nn.Module):
         global_query, key_value = self.mspe(x, size)  # b, n, c
         global_query, key_value = self.query(global_query), self.key_value(key_value)
 
-        # split muti-head
+        # split multi-head
         global_query = rearrange(global_query, 'b n (nh hd) -> b nh n hd', nh=self.num_heads)
         key_value = rearrange(key_value, 'b n (ng nh hd) -> ng b nh n hd', ng=2, nh=self.num_heads)
         key, value = key_value.unbind(0)
@@ -288,7 +288,7 @@ class MultiScaleAttention(nn.Module):
         attn = attn.softmax(dim=-1)
         attn = self.attn_drop(attn)
 
-        # merge muti-head
+        # merge multi-head
         x = (attn @ value).transpose(1, 2).reshape(restore_shape + (-1,))
         x = self.proj(x)
         x = self.proj_drop(x)
@@ -474,7 +474,7 @@ class GlobalScaleAttention(nn.Module):
 
     def attn(self, x):
         restore_shape = x.shape[:-1]
-        # split muti-head
+        # split multi-head
         q, k, v = rearrange(self.qkv(x), 'b n (ng nh hd) -> ng b nh n hd', ng=3, nh=self.num_heads).unbind(0)
 
         attn = (q @ k.transpose(-2, -1)) * self.scale
